@@ -34,7 +34,7 @@ dependencies = [
 [[package]]
 name = "atsamd-hal"
 version = "0.13.0"
-source = "git+https://github.com/vcchtjader/atsamd.git?branch=clocking-api-v2#3da6e2492094e44a51cd9a6fa08a48890f79611c"
+source = "git+https://github.com/vcchtjader/atsamd.git?branch=clocking-api-v2#a7378f5f5a28c84c028a7e1f5fca2c5f8295b454"
 dependencies = [
  "atsame51n",
  "bitfield",
@@ -56,7 +56,7 @@ dependencies = [
 [[package]]
 name = "atsame51n"
 version = "0.11.0"
-source = "git+https://github.com/vcchtjader/atsamd.git?branch=clocking-api-v2#3da6e2492094e44a51cd9a6fa08a48890f79611c"
+source = "git+https://github.com/vcchtjader/atsamd.git?branch=clocking-api-v2#a7378f5f5a28c84c028a7e1f5fca2c5f8295b454"
 dependencies = [
  "bare-metal 0.2.5",
  "cortex-m",
@@ -129,9 +129,9 @@ dependencies = [
 
 [[package]]
 name = "cortex-m-rt"
-version = "0.7.0"
+version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "069533b58e25b635fac881eb6556616bd8f83a3e0ffe2b4b9619289ed14d465e"
+checksum = "3c433da385b720d5bb9f52362fa2782420798e68d40d67bfe4b0d992aba5dfe7"
 dependencies = [
  "cortex-m-rt-macros",
 ]
@@ -338,9 +338,9 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.32"
+version = "1.0.34"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba508cc11742c0dc5c1659771673afbab7a0efab23aa17e854cbab0837ed0b43"
+checksum = "2f84e92c0f7c9d58328b85a78557813e4bd845130db68d7184635344399423b1"
 dependencies = [
  "unicode-xid",
 ]
@@ -487,9 +487,9 @@ checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
 
 [[package]]
 name = "syn"
-version = "1.0.81"
+version = "1.0.82"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f2afee18b8beb5a596ecb4a2dce128c719b4ba399d34126b9e4396e3f9860966"
+checksum = "8daf5dd0bb60cbd4137b1b587d2fc0ae729bc07cf01cd70b36a1ed5ade3b9d59"
 dependencies = [
  "proc-macro2",
  "quote",
