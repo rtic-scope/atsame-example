@@ -24,13 +24,18 @@ panic-halt = "0.2.0"
 cortex-m = "0.7.3"
 cortex-m-rtic = "1.0.0"
 
-[dependencies.atsamd-hal]
-git = "https://github.com/vcchtjader/atsamd.git"
-branch = "clocking-api-v2"
-#path = "../atsamd-bradley/hal/"
-version = "0.13.0"
-features = ["same51n-rt", "unproven"]
+[dependencies.atsamd51n]
+git = "https://github.com/atsamd-rs/atsamd.git"
+version = "0.11.0"
+features = ["rt"]
+
+[dependencies.cortex-m-rtic-trace]
+git = "https://github.com/rtic-scope/cargo-rtic-scope"
+branch = "v0.3.x"
 
 [profile.release]
 debug = true
 lto = true
+
+[patch.crates-io]
+cortex-m = { git = "https://github.com/rtic-scope/cortex-m.git", branch = "rtic-scope" }
