@@ -6,11 +6,11 @@ use panic_halt as _;
 
 #[rtic::app(device = atsamd51n, peripherals = true )]
 mod app {
+    use atsamd51n::Interrupt;
     use cortex_m_rtic_trace::{
         self, trace, GlobalTimestampOptions, LocalTimestampOptions, TimestampClkSrc,
         TraceConfiguration, TraceProtocol,
     };
-    use atsamd51n::Interrupt;
 
     #[shared]
     struct SharedResources {}
@@ -38,7 +38,7 @@ mod app {
                 protocol: TraceProtocol::AsyncSWONRZ,
             },
         )
-            .unwrap();
+        .unwrap();
 
         (SharedResources {}, LocalResources {}, init::Monotonics())
     }
