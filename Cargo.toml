@@ -6,6 +6,19 @@ edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+
+[package.metadata.rtic-scope]
+pac_name = "atsamd51n"
+pac_features = []
+pac_version = "0.11"
+interrupt_path = "atsamd51n::Interrupt"
+tpiu_freq = 16000000
+tpiu_baud = 115200
+dwt_enter_id = 1
+dwt_exit_id = 2
+lts_prescaler = 1
+expect_malformed = true
+
 [dependencies]
 panic-halt = "0.2.0"
 cortex-m = "0.7.3"

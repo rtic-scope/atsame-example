@@ -12,9 +12,9 @@ use atsamd_hal::{
     time::U32Ext,
 };
 
-use rtic::app;
+use atsamd_hal::target_device::Interrupt;
 
-#[app(device = atsamd_hal::target_device, peripherals = true )]
+#[rtic::app(device = atsamd_hal::target_device, peripherals = true )]
 mod app {
 
     use super::*;
@@ -70,6 +70,13 @@ mod app {
         let xosc32k = xosc32k.activate_1k();
         let _xosc32k = xosc32k.activate_32k();
 
+        rtic::pend(Interrupt::EIC_EXTINT_0);
+
         (SharedResources {}, LocalResources {}, init::Monotonics())
+    }
+
+    #[task(binds = EIC_EXTINT_0)]
+    fn hardware(_: hardware::Context) {
+        cortex_m::asm::bkpt();
     }
 }
