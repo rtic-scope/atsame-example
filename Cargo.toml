@@ -24,10 +24,10 @@ panic-halt = "0.2.0"
 cortex-m = "0.7.3"
 cortex-m-rtic = "1.0.0"
 
-[dependencies.atsamd51n]
+[dependencies.atsamd-hal]
 git = "https://github.com/atsamd-rs/atsamd.git"
-version = "0.11.0"
-features = ["rt"]
+version = "0.14.0"
+features = ["same51n-rt", "unproven"]
 
 [dependencies.cortex-m-rtic-trace]
 git = "https://github.com/rtic-scope/cargo-rtic-scope"
