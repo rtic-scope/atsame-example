@@ -7,6 +7,7 @@ use panic_halt as _;
 #[rtic::app(device = atsamd_hal::target_device, peripherals = true, dispatchers = [EIC_EXTINT_1])]
 mod app {
     use atsamd_hal::target_device::Interrupt;
+    use atsamd_hal::thumbv7em::clock::GenericClockController;
     use cortex_m_rtic_trace::{
         self, trace, GlobalTimestampOptions, LocalTimestampOptions, TimestampClkSrc,
         TraceConfiguration, TraceProtocol,
@@ -20,6 +21,21 @@ mod app {
 
     #[init]
     fn init(mut ctx: init::Context) -> (SharedResources, LocalResources, init::Monotonics()) {
+        // configure trace clock
+        let mut gcc = GenericClockController::with_internal_32kosc(
+            ctx.device.GCLK,
+            &mut ctx.device.MCLK,
+            &mut ctx.device.OSC32KCTRL,
+            &mut ctx.device.OSCCTRL,
+            &mut ctx.device.NVMCTRL,
+        );
+        let gclk0 = gcc.gclk0();
+        let trace_clk = gcc.cm4_trace(&gclk0).unwrap();
+
+        let freq = trace_clk.freq().0;
+
+        cortex_m::asm::bkpt();
+
         cortex_m_rtic_trace::configure(
             &mut ctx.core.DCB,
             &mut ctx.core.TPIU,
@@ -31,8 +47,8 @@ mod app {
                 delta_timestamps: LocalTimestampOptions::Enabled,
                 absolute_timestamps: GlobalTimestampOptions::Disabled,
                 timestamp_clk_src: TimestampClkSrc::AsyncTPIU,
-                tpiu_freq: 48_000_000, // Hz
-                tpiu_baud: 115_200,    // B/s
+                tpiu_freq: freq,    // Hz
+                tpiu_baud: 115_200, // B/s
                 protocol: TraceProtocol::AsyncSWONRZ,
             },
         )
@@ -51,7 +67,6 @@ mod app {
     #[trace]
     #[task]
     fn software(_: software::Context) {
-
         #[trace]
         fn nested() {}
 
