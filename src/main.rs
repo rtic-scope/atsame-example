@@ -12,6 +12,8 @@ mod app {
         self, trace, GlobalTimestampOptions, LocalTimestampOptions, TimestampClkSrc,
         TraceConfiguration, TraceProtocol,
     };
+    use atsamd_hal as hal;
+    use hal::gpio::v2::pin::{Alternate, M};
 
     #[shared]
     struct SharedResources {}
@@ -34,8 +36,11 @@ mod app {
 
         let freq = trace_clk.freq().0;
 
-        cortex_m::asm::bkpt();
+        // configure SWO pin
+        let pins = hal::gpio::v2::Pins::new(ctx.device.PORT);
+        let _pc27 = pins.pc27.into_mode::<Alternate<M>>();
 
+        // configure tracing
         cortex_m_rtic_trace::configure(
             &mut ctx.core.DCB,
             &mut ctx.core.TPIU,
@@ -48,7 +53,7 @@ mod app {
                 absolute_timestamps: GlobalTimestampOptions::Disabled,
                 timestamp_clk_src: TimestampClkSrc::AsyncTPIU,
                 tpiu_freq: freq,    // Hz
-                tpiu_baud: 115_200, // B/s
+                tpiu_baud: 9600, // B/s
                 protocol: TraceProtocol::AsyncSWONRZ,
             },
         )
