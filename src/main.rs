@@ -53,7 +53,7 @@ mod app {
                 absolute_timestamps: GlobalTimestampOptions::Disabled,
                 timestamp_clk_src: TimestampClkSrc::AsyncTPIU,
                 tpiu_freq: freq,    // Hz
-                tpiu_baud: 9600, // B/s
+                tpiu_baud: 38400, // B/s
                 protocol: TraceProtocol::AsyncSWONRZ,
             },
         )
@@ -72,13 +72,13 @@ mod app {
     #[trace]
     #[task]
     fn software(_: software::Context) {
-        #[trace]
-        fn nested() {}
+        // #[trace]
+        // fn nested() {}
 
-        // for _ in 0..10000 {
-        //     nested();
-        // }
+        // // for _ in 0..10000 {
+        // //     nested();
+        // // }
 
-        cortex_m::asm::bkpt();
+        // cortex_m::asm::bkpt();
     }
 }
