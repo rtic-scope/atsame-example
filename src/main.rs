@@ -64,13 +64,13 @@ mod app {
         (SharedResources {}, LocalResources {}, init::Monotonics())
     }
 
-    #[task(binds = EIC_EXTINT_0)]
+    #[task(binds = EIC_EXTINT_0, priority = 1)]
     fn hardware(_: hardware::Context) {
         software::spawn().unwrap();
     }
 
     #[trace]
-    #[task]
+    #[task(priority = 2)]
     fn software(_: software::Context) {
         // #[trace]
         // fn nested() {}
