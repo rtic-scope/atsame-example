@@ -37,8 +37,11 @@ mod app {
         let freq = trace_clk.freq().0;
 
         // configure SWO pin
+        // XXX this just happens to be an instrumentation packet
         let pins = hal::gpio::v2::Pins::new(ctx.device.PORT);
         let _pc27 = pins.pc27.into_mode::<Alternate<M>>();
+
+        cortex_m::asm::bkpt();
 
         // configure tracing
         cortex_m_rtic_trace::configure(
