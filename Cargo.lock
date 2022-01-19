@@ -35,7 +35,7 @@ dependencies = [
 [[package]]
 name = "atsamd-hal"
 version = "0.14.0"
-source = "git+https://github.com/atsamd-rs/atsamd.git#1844437dc2727daecd200132d49b72798a0fcac7"
+source = "git+https://github.com/atsamd-rs/atsamd.git#05af3b2ad343a701a6f09f738b4c7f09b1bfed7f"
 dependencies = [
  "atsame51n",
  "bitfield",
@@ -57,7 +57,7 @@ dependencies = [
 [[package]]
 name = "atsame51n"
 version = "0.11.0"
-source = "git+https://github.com/atsamd-rs/atsamd.git#1844437dc2727daecd200132d49b72798a0fcac7"
+source = "git+https://github.com/atsamd-rs/atsamd.git#05af3b2ad343a701a6f09f738b4c7f09b1bfed7f"
 dependencies = [
  "cortex-m",
  "cortex-m-rt",
@@ -109,7 +109,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "cortex-m"
 version = "0.7.4"
-source = "git+https://github.com/rtic-scope/cortex-m.git?branch=rtic-scope#987c900added2aad32d906a615ed23c83f46acd0"
+source = "git+https://github.com/rtic-scope/cortex-m.git?branch=rtic-scope#83e0b768f90b62d03abcae4b347003772225edfa"
 dependencies = [
  "bare-metal",
  "bitfield",
@@ -168,7 +168,6 @@ dependencies = [
 [[package]]
 name = "cortex-m-rtic-trace"
 version = "0.3.0"
-source = "git+https://github.com/rtic-scope/cargo-rtic-scope?branch=v0.3.x#0b1541b925bf471905c9568e0f0765fe0993315b"
 dependencies = [
  "cortex-m",
  "rtic-trace-macros",
@@ -430,7 +429,6 @@ dependencies = [
 [[package]]
 name = "rtic-trace-macros"
 version = "0.0.0"
-source = "git+https://github.com/rtic-scope/cargo-rtic-scope?branch=v0.3.x#0b1541b925bf471905c9568e0f0765fe0993315b"
 dependencies = [
  "quote",
  "syn",

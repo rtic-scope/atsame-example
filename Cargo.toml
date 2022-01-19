@@ -30,8 +30,9 @@ version = "0.14.0"
 features = ["same51n-rt", "unproven"]
 
 [dependencies.cortex-m-rtic-trace]
-git = "https://github.com/rtic-scope/cargo-rtic-scope"
-branch = "v0.3.x"
+# git = "https://github.com/rtic-scope/cargo-rtic-scope"
+# branch = "v0.3.x"
+path = "/home/tmplt/exjobb/cargo-rtic-scope/cortex-m-rtic-trace"
 
 [profile.release]
 debug = true
