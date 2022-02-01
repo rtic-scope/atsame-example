@@ -168,6 +168,7 @@ dependencies = [
 [[package]]
 name = "cortex-m-rtic-trace"
 version = "0.3.1"
+source = "git+https://github.com/rtic-scope/cargo-rtic-scope?branch=v0.3.x#f48a28be04446b97fc4449eb94419201e7206190"
 dependencies = [
  "cortex-m",
  "rtic-trace-macros",
@@ -429,6 +430,7 @@ dependencies = [
 [[package]]
 name = "rtic-trace-macros"
 version = "0.0.0"
+source = "git+https://github.com/rtic-scope/cargo-rtic-scope?branch=v0.3.x#f48a28be04446b97fc4449eb94419201e7206190"
 dependencies = [
  "quote",
  "syn",
