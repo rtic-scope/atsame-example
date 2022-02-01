@@ -38,6 +38,7 @@
             swiftshader
             mesa_noglu
             libGL_driver
+            openocd
 
           ] ++ (with xorg; [libX11 libXcursor libXrandr libXi]);
 
