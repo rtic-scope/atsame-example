@@ -1,22 +1,11 @@
-/*README uncomment exactly one of the below MEMORY definitions and delete this*/
-
-/* application */
-/*
 MEMORY
 {
-  FLASH : ORIGIN = 0x00000000 + 64K, LENGTH = 960K
-  RAM : ORIGIN = 0x20010000, LENGTH = 64K
-  CAN (rw) : ORIGIN = 0x20000000, LENGTH = 64K
-  ECC : ORIGIN = 0x20020000, LENGTH = 128K
+  FLASH : ORIGIN = 0x400000, LENGTH = 512K
+  /* FLASH_UPDATE : ORIGIN = ORIGIN(FLASH)+LENGTH(FLASH), LENGTH = 512K */
+  RAM : ORIGIN = 0x20400000, LENGTH = 256K
 }
-*/
 
-/* monolith (when running without bootloader) */
-MEMORY
-{
-  FLASH : ORIGIN = 0x00000000, LENGTH = 1024K
-  RAM : ORIGIN = 0x20010000, LENGTH = 64K
-  CAN (rw) : ORIGIN = 0x20000000, LENGTH = 64K
-  ECC : ORIGIN = 0x20020000, LENGTH = 128K
-}
-  /*RAM : ORIGIN = 0x20010000, LENGTH = 192K*/
+/* SECTIONS { */
+/*   __flash_update_start = ORIGIN(FLASH_UPDATE); */
+/*   __flash_update_len = LENGTH(FLASH_UPDATE); */
+/* } */

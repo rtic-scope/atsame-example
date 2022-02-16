@@ -23,11 +23,16 @@ expect_malformed = true
 panic-halt = "0.2.0"
 cortex-m = "0.7.3"
 cortex-m-rtic = "1.0.0"
+cortex-m-semihosting = "0.3"
 
-[dependencies.atsamd-hal]
-git = "https://github.com/atsamd-rs/atsamd.git"
-version = "0.14.0"
-features = ["same51n-rt", "unproven"]
+# [dependencies.atsamd-hal]
+# git = "https://github.com/atsamd-rs/atsamd.git"
+# version = "0.14.0"
+# features = ["same51n-rt", "unproven"]
+
+[dependencies.atsame70n]
+path = "../../zpark/atsamd/pac/atsame70n"
+features = ["rt"]
 
 [dependencies.cortex-m-rtic-trace]
 git = "https://github.com/rtic-scope/cargo-rtic-scope"

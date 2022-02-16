@@ -26,7 +26,7 @@ break main
 # TUI options
 #foc cmd
 
-#monitor arm semihosting enable
+monitor arm semihosting enable
 monitor halt
 
 # # send captured ITM to the file itm.fifo
