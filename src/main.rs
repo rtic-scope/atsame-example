@@ -1,4 +1,3 @@
-//! atsamd-demo
 #![no_main]
 #![no_std]
 
@@ -33,14 +32,13 @@ mod app {
         );
         let gclk0 = gcc.gclk0();
         let trace_clk = gcc.cm4_trace(&gclk0).unwrap();
-
         let freq = trace_clk.freq().0;
 
         // configure SWO pin
-        // XXX this just happens to be an instrumentation packet
         let pins = hal::gpio::v2::Pins::new(ctx.device.PORT);
         let _pc27 = pins.pc27.into_mode::<Alternate<M>>();
 
+        // XXX interactive escape from SWO pin transient
         cortex_m::asm::bkpt();
 
         // configure tracing
