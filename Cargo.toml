@@ -1,11 +1,8 @@
 [package]
-name = "atsamd-demo"
+name = "rtic-scope-atsame-example"
 version = "0.1.0"
-authors = ["Henrik Tjäder <henrik@grepit.se>"]
+authors = ["Viktor Sonesten <viktor.sonesten@grepit.se>", "Henrik Tjäder <henrik@grepit.se>"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 
 [package.metadata.rtic-scope]
 pac_name = "atsamd51n"
@@ -17,7 +14,7 @@ tpiu_baud = 1000000
 dwt_enter_id = 1
 dwt_exit_id = 2
 lts_prescaler = 1
-expect_malformed = true
+expect_malformed = false
 
 [dependencies]
 panic-halt = "0.2.0"
@@ -25,7 +22,7 @@ cortex-m = "0.7.3"
 cortex-m-rtic = "1.0.0"
 
 [dependencies.atsamd-hal]
-git = "https://github.com/atsamd-rs/atsamd.git"
+git = "https://github.com/atsamd-rs/atsamd.git" # for InterruptNumber trait
 version = "0.14.0"
 features = ["same51n-rt", "unproven"]
 

@@ -1,13 +1,10 @@
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
 runner = "arm-none-eabi-gdb -q -x openocd.gdb"
 #runner = "gdb-multiarch -q -x openocd.gdb"
-#runner = "probe-run --chip ATSAMD51N20A"
-
 
 rustflags = [
   "-C", "link-arg=-Tlink.x",
   "-C", "link-arg=--nmagic",
-  #"-C", "linker=arm-none-eabi-ld",
 ]
 
 [build]

@@ -17,30 +17,20 @@
       {
         devShell = mkShell rec {
           buildInputs = [
-            openssl
-            pkgconfig
             (rust-bin.stable.latest.default.override {
               targets = [ "x86_64-unknown-linux-gnu" "thumbv7em-none-eabihf" ];
             })
 
-            pkgconfig
-            pkgs.libusb
-            openssl
-            fontconfig
-            freetype
-            expat
+            # openssl
+            # pkgconfig
+            # pkgconfig
+            # pkgs.libusb
+            # openssl
 
-            vulkan-loader
-            vulkan-tools
-            wayland
-            wayland-protocols
-            libxkbcommon
-            swiftshader
-            mesa_noglu
-            libGL_driver
+            # flashing dependencies
+            gcc-arm-embedded
             openocd
-
-          ] ++ (with xorg; [libX11 libXcursor libXrandr libXi]);
+          ];
 
           shellHook = ''
               export LD_LIBRARY_PATH="$LD_LIBRRAY_PATH:${lib.makeLibraryPath buildInputs}"
