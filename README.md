@@ -186,3 +186,7 @@ fn software(ctx: software::Context) {
 ```
 so the timestamps both in the plot and recorded trace is wildly incorrect.
 This discrepancy has yet to be investigated.
+
+---
+
+Related issue: [#139](https://github.com/rtic-scope/cargo-rtic-scope/issues/139).
