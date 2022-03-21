@@ -21,12 +21,6 @@
               targets = [ "x86_64-unknown-linux-gnu" "thumbv7em-none-eabihf" ];
             })
 
-            # openssl
-            # pkgconfig
-            # pkgconfig
-            # pkgs.libusb
-            # openssl
-
             # flashing dependencies
             gcc-arm-embedded
             openocd
